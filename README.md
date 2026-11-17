@@ -120,7 +120,13 @@ See [`Expansion-GRR/README.md`](Expansion-GRR/README.md) for building new roadma
 
 ## My contributions
 
-This was a team project with five members. My main contribution was the **MoveIt implementation in ROS 2**. I set up the UR10 MoveIt configuration and used `computeCartesianPath` to generate and execute the semicircular trajectory. I also tuned the end-effector step size and jump threshold, and analyzed where this approach produced discontinuous trajectories, which led the team to switch to Expansion-GRR. I also worked with the team on the constrained smooth path generation.
+This was a team project with five members. My main contribution was the **MoveIt implementation in ROS 2**:
+
+- **MoveIt setup:** configured MoveIt for the UR10 (`ur10_moveit_config`).
+- **Semicircular trajectory:** wrote the `hello_moveit` node, which generates the semicircular waypoints facing the object and plans and executes them with `computeCartesianPath`.
+- **Tuning:** experimented with the end-effector step size and the joint jump threshold to balance continuity against planning success.
+- **Analysis:** identified where and why the Cartesian approach produced discontinuous trajectories, which led the team to switch to Expansion-GRR.
+- **Path generation:** worked with the team on the constrained smooth path generation.
 
 ---
 

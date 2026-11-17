@@ -1,8 +1,8 @@
 # Motion Planning for Active Viewpoint Selection in Reconstruction-Based Grasping
 
-To grasp an object well, a robot needs to know its full 3D shape, but a camera only sees one side of it at a time. This project has a **UR10 arm** move a gripper-mounted **RGB-D camera** around an object along a semicircular path, capturing images from many angles and stitching them into a single **3D point cloud** of the object.
+A motion planning and perception pipeline that builds a **3D model of an object** for grasping. A **UR10** arm moves a wrist-mounted **RGB-D camera** along a semicircular path around the object, keeping the camera pointed at it, and the images captured along the way are stitched into a single point cloud using **ICP**.
 
-The main challenge is the motion itself. The arm has to follow the path **smoothly and continuously**, with the camera **pointed at the object the whole time**, without sudden jumps between joint configurations. We compared two ways of planning this path, **MoveIt Cartesian planning** and **Expansion-GRR**, and showed the result in simulation and on a real UR10.
+The focus is on planning that camera path so the arm moves **smoothly and continuously** through it. Two planners are compared, **MoveIt Cartesian planning** (ROS 2) and **Expansion-GRR**, and the result is demonstrated in PyBullet and on a real UR10.
 
 Final project for **RBE 550: Motion Planning, WPI**, in collaboration with the [ELPIS Lab](https://elpislab.org/). Team project (5 members).
 

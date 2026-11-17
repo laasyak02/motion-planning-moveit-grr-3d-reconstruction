@@ -1,0 +1,11 @@
+camera/
+__pycache__/
+photo_banana.py
+
+# Linux crash dumps
+core
+
+# ROS/colcon build output
+ur_ws/build/
+ur_ws/install/
+ur_ws/log/

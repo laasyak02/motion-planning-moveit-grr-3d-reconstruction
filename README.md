@@ -121,8 +121,6 @@ ros2 launch ur10_moveit_config demo.launch.py   # UR10 in RViz with MoveIt
 ros2 run hello_moveit hello_moveit              # plan and execute the semicircle
 ```
 
-See [`Expansion-GRR/README.md`](Expansion-GRR/README.md) for building new roadmaps and running the planner's own demos.
-
 ---
 
 ## My contributions

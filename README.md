@@ -2,11 +2,11 @@
 
 A motion planning and perception pipeline that builds a **3D model of an object** for grasping. A **UR10** arm moves a wrist-mounted **RGB-D camera** along a semicircular path around the object, keeping the camera pointed at it, and the images captured along the way are stitched into a single point cloud using **ICP**.
 
-The focus is on planning that camera path so the arm moves **smoothly and continuously** through it. Two planners are compared, **MoveIt Cartesian planning** (ROS 2) and **Expansion-GRR**, and the result is demonstrated in PyBullet and on a real UR10.
+The focus is on planning that camera path so the arm moves **smoothly and continuously** through it allowing the camera to constantly point toward the object. Two planners are compared, **MoveIt Cartesian planning** (ROS 2) and **Expansion-GRR**, and the result is demonstrated in PyBullet and on a real UR10.
 
-Final project for **RBE 550: Motion Planning, WPI**, in collaboration with the [ELPIS Lab](https://elpislab.org/). Team project (5 members).
+This project was done as part of the final project for the RBE 550: Motion Planning course at WPI, in collaboration with the [ELPIS Lab](https://elpislab.org/). Team project (5 members).
 
-<!-- VIDEO: drag expansion_grr_real_ur10.mp4 here -->
+https://github.com/user-attachments/assets/254b9e9b-918a-44b7-ad79-7c2023917464
 
 ---
 
@@ -29,7 +29,12 @@ The first approach plans the semicircle directly with MoveIt on a UR10 (`ur_ws/`
 - **Output:** either the full trajectory, or only the fraction of it that MoveIt managed to compute.
 - **Limitation:** a complete trajectory often needed many attempts (around 100), and even complete ones frequently became discontinuous partway through. Lowering the jump threshold improved continuity but made planning fail far more often. This made the approach unreliable and motivated the switch to Expansion-GRR.
 
-<!-- VIDEO: drag moveit_continuous.mp4 and moveit_discontinuous.mp4 here, side by side -->
+<table>
+  <tr>
+    <td align="center"><video src="https://github.com/user-attachments/assets/19c928b4-1efe-4fdf-9e32-8a19fb2db449" controls></video><br><em>Continuous trajectory</em></td>
+    <td align="center"><video src="https://github.com/user-attachments/assets/c07a23c7-21ce-4b79-8c51-34e3caa28f44" controls></video><br><em>Discontinuous trajectory</em></td>
+  </tr>
+</table>
 
 ### 2. Expansion-GRR path planning
 
@@ -41,7 +46,7 @@ The first approach plans the semicircle directly with MoveIt on a UR10 (`ur_ws/`
 - **Verification:** continuity was checked by measuring the joint differences between successive steps. The captured images confirmed the camera stayed pointed at the object throughout.
 - **Results:** demonstrated in PyBullet and then on the real UR10.
 
-<!-- VIDEO: drag expansion_grr_pybullet.mp4 here -->
+https://github.com/user-attachments/assets/546e57ef-7f37-4ded-bf37-98587c2f6dc5
 
 ### 3. Perception and 3D reconstruction
 
@@ -127,7 +132,7 @@ This was a team project with five members. My main contribution was the **MoveIt
 - **MoveIt setup:** configured MoveIt for the UR10 (`ur10_moveit_config`).
 - **Semicircular trajectory:** wrote the `hello_moveit` node, which generates the semicircular waypoints facing the object and plans and executes them with `computeCartesianPath`.
 - **Tuning:** experimented with the end-effector step size and the joint jump threshold to balance continuity against planning success.
-- **Analysis:** identified where and why the Cartesian approach produced discontinuous trajectories, which led the team to switch to Expansion-GRR.
+- **Analysis:** identified where and why the Cartesian approach produced discontinuous trajectories.
 - **Path generation:** worked with the team on the constrained smooth path generation.
 
 ---
@@ -137,7 +142,3 @@ This was a team project with five members. My main contribution was the **MoveIt
 - [Expansion-GRR](https://github.com/elpis-lab/Expansion-GRR): Zhong, Li & Chamzas, *"Expansion-GRR: Efficient Generation of Smooth Global Redundancy Resolution Roadmaps,"* IROS 2024 ([arXiv](https://arxiv.org/abs/2405.13770)). MIT License.
 - [YCB Object and Model Set](https://www.ycbbenchmarks.com/): Calli et al.
 - Built in collaboration with the [ELPIS Lab](https://elpislab.org/), WPI.
-
----
-
-**Laasya Kodandaramu** · [GitHub](https://github.com/laasyak02) · [LinkedIn](https://www.linkedin.com/in/laasya-kodandaramu-085a13234/)
